@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora 3D</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="loader">
+        <div class="loader-content">
+            <img src="Image/5316a942-66bf-4f31-8bbe-33238cc7c781-removebg-preview.png" alt="Logo Super FIME 3D World">
+            <h2>Super FIME 3D World</h2>
+            <div class="barra-de-carga">
+                <div id="barraDeCarga"></div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h1>Calculadora 3D</h1>
+
+        <div>
+            <button onclick="seleccionarImpresora('filamento')">Impresora de Filamento</button>
+            <button onclick="seleccionarImpresora('resina')">Impresora de Resina</button>
+        </div>
+
+        <div id="filamentoCalculadora" style="display: none;">
+            <h2>Calculadora de Filamento</h2>
+            <form id="calculatorForm">
+                <label for="material">Material:</label>
+                <select id="material" required>
+                    <option value="pla">PLA (Ácido Poliláctico) - 1.24 g/cm³</option>
+                    <option value="abs">ABS (Acrilonitrilo Butadieno Estireno) - 1.04 g/cm³</option>
+                    <option value="tpu">TPU (Poliuretano Termoplástico) - 1.21 g/cm³</option>
+                    <option value="petg">PETG (Tereftalato de Polietileno Glicol) - 1.27 g/cm³</option>
+                </select>
+
+                <label for="length">Longitud del modelo (cm):</label>
+                <input type="number" id="length" required>
+
+                <label for="width">Ancho del modelo (cm):</label>
+                <input type="number" id="width" required>
+
+                <label for="height">Altura del modelo (cm):</label>
+                <input type="number" id="height" required>
+
+                <button type="button" onclick="calcularFilamento()">Calcular</button>
+            </form>
+        </div>
+
+        <div id="resinaCalculadora" style="display: none;">
+            <h2>Calculadora de Resina</h2>
+            <form id="resinCalculatorForm">
+                <label for="resinType">Tipo de Resina:</label>
+                <select id="resinType" required>
+                    <option value="standard">Resina Estándar</option>
+                    <option value="flexible">Resina Flexible</option>
+                    <!-- Agrega más opciones según tus necesidades -->
+                </select>
+
+                <label for="layerHeight">Altura de Capa (micrones):</label>
+                <input type="number" id="layerHeight" required>
+
+                <label for="printVolume">Volumen de Impresión (ml):</label>
+                <input type="number" id="printVolume" required>
+
+                <button type="button" onclick="calcularResina()">Calcular</button>
+            </form>
+        </div>
+
+        <div id="result"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
